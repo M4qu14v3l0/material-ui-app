@@ -2,9 +2,6 @@
 import { IconButton, Stack, TextField } from "@mui/material"
 import SearchIcon from '@mui/icons-material/Search';
 
-//De React
-import { useState } from "react";
-
 //Estilos
 
 const stack = {
@@ -26,11 +23,17 @@ const iconButton = {
 }
 
 
-export default function Searcher(){
+export default function Searcher(props){
+
+    //búsqueda y su seteador de valores
+
+    const {
+        search , setSearch , setProfileSearch
+    } = props
 
     //Lógica
 
-    const [search , setSearch] = useState('octocat')
+    // const [search , setSearch] = useState('octocat')
 
     const onSearch = ({target}) => {
         setSearch(target.value)
@@ -38,6 +41,7 @@ export default function Searcher(){
 
     const onSubmit = (event) => {
         event.preventDefault()
+        setProfileSearch(search)
         console.log(search)
     } 
 
