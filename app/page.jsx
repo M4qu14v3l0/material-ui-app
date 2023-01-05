@@ -32,6 +32,8 @@ export default function Page(){
     const [profileSearch , setProfileSearch] = useState(search)
     //búsqueda no encontrada
     const [notFound , setNotFound] = useState(false)
+    //data del perfil
+    const [dataUser , setDataUser] = useState({})
 
     //Escuchamos algún cambio para nueva búsqueda
     useEffect(() => {
@@ -39,26 +41,25 @@ export default function Page(){
     },[profileSearch])
 
     //Realizamos la búsqueda
-    let dataProfile
     const gettinUser = async (user) => {
         try{
-            const userResponse = await getGitHubUser(user)
-            data = userResponse
+            setDataUser(await getGitHubUser(user))
         }catch(error){
             setNotFound(true)
         }
     }
 
+    console.log(dataUser)
+
 
 
     return(
         <Container sx={container}>
-            <div>
-                <h1>Soy un contenedor</h1>
-            </div>
+
+            <h1>Busca un Perfil</h1>
             <Searcher search={search} setSearch={setSearch} setProfileSearch={setProfileSearch}/>
             {
-                notFound ? <NotFound /> : <Profile dataProfile={dataProfile}/>
+                notFound ? <NotFound /> : <Profile {...dataUser}/>
             }
 
         </Container>
