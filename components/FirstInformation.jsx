@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import { Stack } from "@mui/system";
+import LocationInformation from "./LocationInformation";
 import PaperInformation from "./PaperInformation";
 
 export default function FirstInformation(dataUser){
@@ -11,6 +12,7 @@ export default function FirstInformation(dataUser){
                 <Typography>{dataUser.created_at}</Typography>
             </Stack>
             <PaperInformation {...dataUser}/>
+            <LocationInformation {...dataUser} />
         </>
     )
 }

@@ -1,7 +1,7 @@
-export default function LocationInformation(){
+export default function LocationInformation({}){
     return(
         <>
-            
+
         </>
     )
 }
