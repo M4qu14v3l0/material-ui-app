@@ -5,6 +5,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LanguageIcon from "@mui/icons-material/Language";
 import BusinessIcon from '@mui/icons-material/Business';
 
+
 export default function LocationInformation({location , twitter_username , blog , company}){
 
 
