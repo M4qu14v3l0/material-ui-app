@@ -1,17 +1,22 @@
 import { Typography } from "@mui/material";
 import { Stack } from "@mui/system";
+import LocationInformation from "./LocationInformation";
+import PaperInformation from "./PaperInformation";
 
-export default function Description({bio}){
+export default function Description({dataUser}){
+
+
     return(
         <>
-            <Stack>
-                <Typography>
+            <Stack justifyContent='center'>
+                <Typography variant="body1">
                 {
-                    !bio ? "Lorem Ipsum" : bio
+                    !dataUser.bio ? "Lorem Ipsum" : dataUser.bio
                 }
                 </Typography>
             </Stack>
-            
+            <PaperInformation {...dataUser}/>
+            <LocationInformation {...dataUser} />
         </>
     )
 }

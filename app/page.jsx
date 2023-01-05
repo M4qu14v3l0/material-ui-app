@@ -13,7 +13,7 @@ import NotFound from "../components/NotFound";
 const container = {
     background: '#dafff6',
     width: '80vw',
-    height: '500px',
+    height: '60vh',
     borderRadius: '16px',
     marginTop:'40px',
     display: 'flex',

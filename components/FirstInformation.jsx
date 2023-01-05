@@ -1,18 +1,21 @@
 import { Typography } from "@mui/material";
 import { Stack } from "@mui/system";
-import LocationInformation from "./LocationInformation";
-import PaperInformation from "./PaperInformation";
 
 export default function FirstInformation(dataUser){
     
+
+    const stackContainer = {
+        justifyContent : 'space-between',
+        alignContent : 'center',
+    }
+
     return(
         <>
-            <Stack>
-                <Typography>{dataUser.name}</Typography>
-                <Typography>{dataUser.created_at}</Typography>
+            <Stack direction='row' alignItems='center' sx={stackContainer}>
+                <Typography variant="h4">{dataUser.name}</Typography>
+                <Typography variant="subtitle2">{dataUser.created_at}</Typography>
             </Stack>
-            <PaperInformation {...dataUser}/>
-            <LocationInformation {...dataUser} />
+            <Typography variant="caption">{`@${dataUser.login}`}</Typography>
         </>
     )
 }
