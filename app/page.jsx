@@ -48,18 +48,13 @@ export default function Page(){
             setNotFound(true)
         }
     }
-
-    console.log(dataUser)
-
-
-
     return(
         <Container sx={container}>
 
             <h1>Busca un Perfil</h1>
             <Searcher search={search} setSearch={setSearch} setProfileSearch={setProfileSearch}/>
             {
-                notFound ? <NotFound /> : <Profile {...dataUser}/>
+                notFound ? <NotFound /> : <Profile dataUser={dataUser}/>
             }
 
         </Container>
