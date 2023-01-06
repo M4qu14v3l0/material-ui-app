@@ -1,3 +1,4 @@
+// use client es necesario para que corra next 13 para parte del cliente
 'use client'
 
 import { Container } from '@mui/material'
