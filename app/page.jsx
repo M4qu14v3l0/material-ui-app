@@ -41,9 +41,12 @@ export default function Page () {
 
   // Realizamos la búsqueda
   const gettinUser = async (user) => {
+    const response = await getGitHubUser(user)
+    console.log(response)
     try {
-      setDataUser(await getGitHubUser(user))
+      setDataUser(response)
     } catch (error) {
+      console.log('perfil no encontrado')
       setNotFound(true)
     }
   }
@@ -53,7 +56,7 @@ export default function Page () {
       <h1>Busca un Perfil</h1>
       <Searcher search={search} setSearch={setSearch} setProfileSearch={setProfileSearch} />
       {
-                notFound ? <NotFound /> : <Profile dataUser={dataUser} />
+                !notFound ? <Profile dataUser={dataUser} /> : <NotFound />
             }
 
     </Container>
