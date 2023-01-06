@@ -1,59 +1,57 @@
-//De MUI
-import { IconButton, Stack, TextField } from "@mui/material"
-import SearchIcon from '@mui/icons-material/Search';
+// De MUI
+import { IconButton, Stack, TextField } from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search'
 
-//Estilos
+// Estilos
 
 const stack = {
-    marginTop: '10px',
-    width:'50%',
-}   
+  marginTop: '10px',
+  width: '50%'
+}
 
 const textField = {
-    width: '90%',
+  width: '90%'
 }
 
 const form = {
 
-    width: '100%',
+  width: '100%'
 }
 
 const iconButton = {
-    left: '-50px'
+  left: '-50px'
 }
 
+export default function Searcher (props) {
+  // búsqueda y su seteador de valores
 
-export default function Searcher(props){
+  const {
+    search, setSearch, setProfileSearch
+  } = props
 
-    //búsqueda y su seteador de valores
+  // Lógica
 
-    const {
-        search , setSearch , setProfileSearch
-    } = props
+  // const [search , setSearch] = useState('octocat')
 
-    //Lógica
+  const onSearch = ({ target }) => {
+    setSearch(target.value)
+  }
 
-    // const [search , setSearch] = useState('octocat')
+  const onSubmit = (event) => {
+    event.preventDefault()
+    setProfileSearch(search)
+    console.log(search)
+  }
 
-    const onSearch = ({target}) => {
-        setSearch(target.value)
-    }
+  return (
 
-    const onSubmit = (event) => {
-        event.preventDefault()
-        setProfileSearch(search)
-        console.log(search)
-    } 
-
-    return(
-
-        <Stack sx={stack}>
-            <form onSubmit={ onSubmit } className={form.className}>
-                <TextField sx={textField} id="outlined-basic" label="GitHub User" variant="outlined" placeholder="Buscar usuario" size="small" value={search} onChange={onSearch}/>          
-                <IconButton sx={iconButton} onClick={ onSubmit }>
-                    <SearchIcon/>
-                </IconButton>     
-            </form>
-        </Stack>
-    )
+    <Stack sx={stack}>
+      <form onSubmit={onSubmit} className={form.className}>
+        <TextField sx={textField} id='outlined-basic' label='GitHub User' variant='outlined' placeholder='Buscar usuario' size='small' value={search} onChange={onSearch} />
+        <IconButton sx={iconButton} onClick={onSubmit}>
+          <SearchIcon />
+        </IconButton>
+      </form>
+    </Stack>
+  )
 }
